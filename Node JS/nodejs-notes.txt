@@ -1,0 +1,5 @@
+1- Node js is a runtime envirenment of javascript that created with n8v plus C++ , this node provide dom element it just run javascript server code 
+
+2- Node js provide fs (File System) that is just accessable in node and it's help us to read , write ,create and delete and number of functionality on files in current directory
+
+3- Sync and async code flow, blocking and non-blocking flow, javascript run asyncroneously and it's non-blocking code language
