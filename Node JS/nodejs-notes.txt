@@ -3,3 +3,5 @@
 2- Node js provide fs (File System) that is just accessable in node and it's help us to read , write ,create and delete and number of functionality on files in current directory
 
 3- Sync and async code flow, blocking and non-blocking flow, javascript run asyncroneously and it's non-blocking code language
+
+4- We can create a server using node http module , and send rewponse but we don't use it to do blcoking or heavy tasks. this all done in server forlder
