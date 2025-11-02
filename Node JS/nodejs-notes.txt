@@ -5,3 +5,5 @@
 3- Sync and async code flow, blocking and non-blocking flow, javascript run asyncroneously and it's non-blocking code language
 
 4- We can create a server using node http module , and send rewponse but we don't use it to do blcoking or heavy tasks. this all done in server forlder
+
+5- we can make any request using node js server like post , put, get ,delete
