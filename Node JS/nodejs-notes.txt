@@ -1,4 +1,4 @@
-1- Node js is a runtime envirenment of javascript that created with n8v plus C++ , this node provide dom element it just run javascript server code 
+1- Node js is a runtime envirenment of javascript that created with n8v plus C++ , node can't provide dom element it just run javascript server code 
 
 2- Node js provide fs (File System) that is just accessable in node and it's help us to read , write ,create and delete and number of functionality on files in current directory
 
@@ -6,4 +6,4 @@
 
 4- We can create a server using node http module , and send rewponse but we don't use it to do blcoking or heavy tasks. this all done in server forlder
 
-5- we can make any request using node js server like post , put, get ,delete
+5- We can handle any HTTP request using a Node.js server, such as POST, PUT, GET, and DELETE.
