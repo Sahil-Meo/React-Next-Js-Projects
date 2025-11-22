@@ -32,8 +32,8 @@ const getURL = async (req, res) => {
                }
           }, { new: true })
           console.log(entry)
-          if (!entry) return res.status(404).json({ success: false, message: "iccorect credentials try again" });
-          res.redirect(entry.redirectUrl)
+          if (!entry) return res.status(404).json({ success: false, message: "Incorrect credentials try again" });
+          res.status(200).redirect(entry.redirectUrl)
      } catch (error) {
           return res.status(500).json({ success: false, message: error.message })
      }
@@ -44,14 +44,16 @@ async function getAnalyticsOfUrl(req, res) {
           const shortId = req.params.id
           if (!shortId) return res.status(400).json({ success: false, message: "url id required" })
           const results = await URL.findOne({ shortId })
-          
+          if (!results) return res.status(404).json({ success: false, message: "Incorrect credentials try again" });
+          res.status(200).json({success:true, message:"analytics fetch successfully", totalClicks:results.visitHistory.length, analytics:results.visitHistory });
 
      } catch (error) {
-
+          return res.status(500).json({ success: false, message: error.message })
      }
 }
 
 module.exports = {
      getGenratedShortUrl,
-     getURL
+     getURL,
+     getAnalyticsOfUrl
 };
