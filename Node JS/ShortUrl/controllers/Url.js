@@ -1,24 +1,57 @@
 
-const URL = require("../config/db")
-const nanoid = require("nanoid")
+
+const { nanoid } = require("nanoid");
+const URL = require("../models/url");
 
 async function getGenratedShortUrl(req, res) {
      const { url } = req.body;
      try {
-          if (!url) return res.status(401).json({ success: false, message: "url string is required" });
+          if (!url) return res.status(400).json({ success: false, message: "url string is required" });
           const genId = nanoid(8)
+          console.log("You are there")
           const createdUrl = await URL.create({
                shortId: genId,
-               redirectURL: url,
-               visitHistory: Date.now()
+               redirectUrl: url
           })
-
+          console.log(createdUrl, "that is it")
           res.status(200).json({ id: genId, success: true, message: "url genrated successfully" })
      } catch (error) {
           return res.status(500).json({ success: false, message: error.message });
      }
-} 
+}
+
+const getURL = async (req, res) => {
+     const shortId = req.params.id
+     try {
+          if (!shortId) return res.status(400).json({ success: false, message: "url id required" })
+          const entry = await URL.findOneAndUpdate({ shortId }, {
+               $push: {
+                    visitHistory: {
+                         timestamps: Date.now()
+                    }
+               }
+          }, { new: true })
+          console.log(entry)
+          if (!entry) return res.status(404).json({ success: false, message: "iccorect credentials try again" });
+          res.redirect(entry.redirectUrl)
+     } catch (error) {
+          return res.status(500).json({ success: false, message: error.message })
+     }
+}
+
+async function getAnalyticsOfUrl(req, res) {
+     try {
+          const shortId = req.params.id
+          if (!shortId) return res.status(400).json({ success: false, message: "url id required" })
+          const results = await URL.findOne({ shortId })
+          
+
+     } catch (error) {
+
+     }
+}
 
 module.exports = {
-     getGenratedShortUrl
+     getGenratedShortUrl,
+     getURL
 };

@@ -8,8 +8,8 @@ const app = express();
 dotenv.config()
 
 connectDB()
-
-app.use('/short-url', urlRouter);
+app.use(express.json())
+app.use('/url', urlRouter);
 
 const PORT = process.env.PORT || 8002;
 
