@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>About Short Url --</title>
+</head>
+<body>
+     <h1>WelCome to our website </h1>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati dolorum repellendus quisquam recusandae deleniti quos, incidunt fuga beatae cumque saepe deserunt iste accusamus nihil a voluptas distinctio quasi autem error?</p>
+     <ul>
+       <% if (user) { %>
+    <h1><%= user %></h1>
+<% } %>
+     </ul>
+
+     <ul>
+     <% if (condition) { %>
+      
+     <% } %>
+     </ul>
+     <ul>
+    <% urls.forEach(url => { %>
+        <li style="color: steelblue; font-size: 18px; font-weight: bold; ">
+          <%= url.redirectUrl %> - <%= url.id %>  <%= url.visitHistory.length%>
+        </li>
+    <% }) %>
+</ul>
+</body>
+<script ></script>
+</html>

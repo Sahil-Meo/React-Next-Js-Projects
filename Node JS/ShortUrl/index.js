@@ -1,8 +1,9 @@
 const express = require("express")
 const dotenv = require("dotenv");
-const {connectDB} = require("./config/db");
+const { connectDB } = require("./config/db");
 const urlRouter = require("./routes/url");
-const path = require('path')
+const path = require('path');
+const URL = require("./models/url");
 
 
 const app = express();
@@ -10,13 +11,23 @@ dotenv.config()
 
 connectDB()
 app.set('view engine', 'ejs')
-app.set('views',path.resolve('./views'))
+app.set('views', path.resolve('./views'))
 app.use(express.json())
+app.use(express.static(path.join(__dirname, "public")));
 
 //Routes
 app.use('/url', urlRouter);
-app.get('/renderTest', (req,res)=>{
-     return res.render('home')
+app.get('/', async (req, res) => {
+     const allUrls = await URL.find()
+     return res.render('home', { urls: allUrls })
+})
+app.get('/renderTest/about', async (req, res) => {
+     const allUrls = await URL.find()
+     return res.render('about', { urls: allUrls, user: "Sahil Meo" })
+})
+app.get('/web-page', async (req, res) => {
+     const allUrls = await URL.find()
+     return res.render('page')
 })
 
 const PORT = process.env.PORT || 8002;

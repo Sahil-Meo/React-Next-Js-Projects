@@ -1,12 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
      <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Home Short URL - 2025</title>
+     <style>
+          body {
+               font-family: sans-serif;
+          }
+
+          h1 {
+               color: steelblue;
+               text-align: center;
+               font-size: 38px;
+          }
+
+          .input-form {
+               max-width: 800px;
+               background-color: hsl(0, 0%, 90%);
+               box-shadow: 0px 0px 5px rgb(78, 78, 78);
+               margin: 50px auto;
+               padding: 24px;
+               border-radius: 8px;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               gap: 8px;
+               box-sizing: border-box;
+          }
+
+          .input-form input {
+               padding: 6px 14px;
+               font-size: 16px;
+               outline: none;
+               width: 100%;
+               max-width: 80%;
+
+          }
+
+          .input-form button {
+               font-size: 16px;
+               outline: none;
+               border: 1px solid gray;
+               border-radius: 8px;
+               padding: 8px 16px;
+               background-color: steelblue;
+          }
+
+          table {
+               max-width: 800px;
+               background-color: hsl(0, 0%, 90%);
+               box-shadow: 0px 0px 5px rgb(78, 78, 78);
+               margin: 50px auto;
+               padding: 24px;
+               border-radius: 8px;
+               width: 100%;
+          }
+     </style>
 </head>
+
 <body>
      <h1>Short your url here, just in one click</h1>
-     <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed, numquam! Dolorem saepe maxime vitae recusandae hic, ullam error, dolorum deserunt repellendus quibusdam, aliquam alias! Perferendis fugiat fugit commodi! Expedita, sit!</p>
+     <form  action="post" class="input-form">
+          <input type="text">
+          <button type="submit">Short URL</button>
+     </form>
+     <table>
+          <thead>
+               <th>Number</th>
+               <th>Short Key</th>
+               <th>URL</th>
+               <th>Clicks</th>
+          </thead>
+          <tbody>
+               <% urls.forEach((element, index)=> { %>
+                    <tr>
+                         <td>
+                              <%= index +1 %>
+                         </td>
+                         <td>
+                              <%= element.shortId %>
+                         </td>
+                         <td style="width: 200px; overflow: hidden;">
+                              <%= element.redirectUrl %>
+                         </td>
+                         <td>
+                              <%= element.visitHistory.length %>
+                         </td>
+                    </tr>
+                    <% }) %>
+
+          </tbody>
+     </table>
 </body>
+
+
+<script>
+
+     const inputForm = document.getElementsByClassName('input-form');
+</script>
 </html>
