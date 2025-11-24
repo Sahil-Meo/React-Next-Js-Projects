@@ -6,6 +6,7 @@ const URL = require("../models/url");
 async function getGenratedShortUrl(req, res) {
      const { url } = req.body;
      try {
+          console.log(req.body)
           if (!url) return res.status(400).json({ success: false, message: "url string is required" });
           const genId = nanoid(8)
           console.log("You are there")
@@ -13,8 +14,7 @@ async function getGenratedShortUrl(req, res) {
                shortId: genId,
                redirectUrl: url
           })
-          console.log(createdUrl, "that is it")
-          res.status(200).json({ id: genId, success: true, message: "url genrated successfully" })
+          res.render('home', {url:createdUrl})
      } catch (error) {
           return res.status(500).json({ success: false, message: error.message });
      }

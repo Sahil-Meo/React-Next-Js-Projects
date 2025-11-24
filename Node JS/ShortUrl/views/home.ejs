@@ -6,6 +6,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <title>Home Short URL - 2025</title>
      <style>
+          
           body {
                font-family: sans-serif;
           }
@@ -62,37 +63,20 @@
 
 <body>
      <h1>Short your url here, just in one click</h1>
-     <form  action="post" class="input-form">
-          <input type="text">
-          <button type="submit">Short URL</button>
+     <form method="post" action="/url" class="input-form">
+          <div style="width: auto">
+               <label for="url-input">enter your url here</label>
+               <input type="text" id="url-input" name="url">
+          </div>
+          <button type="submit">Generate</button>
      </form>
-     <table>
-          <thead>
-               <th>Number</th>
-               <th>Short Key</th>
-               <th>URL</th>
-               <th>Clicks</th>
-          </thead>
-          <tbody>
-               <% urls.forEach((element, index)=> { %>
-                    <tr>
-                         <td>
-                              <%= index +1 %>
-                         </td>
-                         <td>
-                              <%= element.shortId %>
-                         </td>
-                         <td style="width: 200px; overflow: hidden;">
-                              <%= element.redirectUrl %>
-                         </td>
-                         <td>
-                              <%= element.visitHistory.length %>
-                         </td>
-                    </tr>
-                    <% }) %>
 
-          </tbody>
-     </table>
+     <div>
+          <% if (locals.url) { %>
+               <p>http://localhost:8001/url/<%= url.shortId %>
+               </p>
+               <% } %>
+     </div>
 </body>
 
 
@@ -100,4 +84,5 @@
 
      const inputForm = document.getElementsByClassName('input-form');
 </script>
+
 </html>
