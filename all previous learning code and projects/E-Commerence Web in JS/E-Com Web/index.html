@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Commerence</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+    integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <div class="wrapper" id="signup-popup">
+    <form id="form">
+      <span id="close-popup" class="close-popup">&times;</span>
+      <h1>Sign Up</h1>
+      <p class="errorsElement"></p>
+      <div>
+        <label for="firstname-Input"> <i class="fa-solid fa-user"></i></label>
+        <input type="text" name="firstname" id="firstname-Input" placeholder="First Name">
+      </div>
+      <div>
+        <label for="email-Input">@</label>
+        <input type="email" name="email" id="email-Input" placeholder="email">
+      </div>
+      <div>
+        <label for="password-Input"> <i class="fa-solid fa-lock"></i></label>
+        <input type="password" name="password" id="password-Input" placeholder="Password">
+      </div>
+      <div>
+        <label for="firstname-Input"><i class="fa-solid fa-lock"></i></label>
+        <input type="password" name="Repeatpassword" id="Repeatpassword-Input" placeholder="Repeat Password">
+      </div>
+      <p id="showPasswordcontainer"><input type="checkbox" id="showPassword">show password</p>
+      <button type="submit" id="btn">Sign Up</button>
+      <p>Alredy have account? <a href="login.html">Log-In</a></p>
+    </form>
+  </div>
+
+  <header id="section-navbar">
+    <section class="top-text">
+      <div class="header container">
+        <div class="head-text">
+          <p class="p-normal">
+            Free shipping, 30-day return and refund guarantee.
+          </p>
+        </div>
+        <div id="sign-in-up">
+          <a href="#">SIGN IN</a>
+          <a href="#">SIGN UP</a>
+        </div>
+      </div>
+    </section>
+    <div class="container header">
+      <div class="navbar-brand">
+        <a href="index.html">
+          <img src="images/logo2.png" alt="logo-img" id="logo" />
+        </a>
+      </div>
+
+      <nav class="navbar">
+        <ul>
+          <li class="nav-item">
+            <a href="/" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="About.html" class="nav-link">About</a>
+          </li>
+          <li class="nav-item">
+            <a href="Products.html" class="nav-link">Products</a>
+          </li>
+          <li class="nav-item">
+            <a href="Contact.html" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a href="cartProduct.html" class="nav-link cart-button" id="cartValue"><i class="fa-solid fa-cart-shopping">
+                0 </i></a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- hero section start -->
+  <section id="hero-section">
+    <div class="container hero-section">
+      <div class="hero-text">
+        <h4>EXPLORE THE LATEST IN TECH INDUSTRIES</h4>
+        <h1>Your Destination For All-Tech Products!</h1>
+        <p class="p-small">
+          Wellcome to Shop&Save Store, Your Ultimate Distination For Our
+          Latest Product! Explore The Latest In Tech Invotation and Style Wiht
+          Us. Shop Now and Discover the World Possibilites.
+        </p>
+        <button id="Btn hero-btn"><a href="Products.html">Explore More</a></button>
+      </div>
+      <div class="hero-img">
+        <img src="images/hero-img.png" alt="">
+      </div>
+    </div>
+
+  </section>
+  <!-- hero section end -->
+
+  <!-- product section start -->
+  <section id="product-section " class="margin-tb">
+    <div class="container grid grid-three-cols">
+      <div class="card grid grid-two-cols">
+        <div class="pro-desc">
+          <p class="p-small">NEW YEAR SALE</p>
+          <h3>get and extra 50% off</h3>
+          <a href="#">Shop now</a>
+        </div>
+        <div class="pro-img">
+          <img src="images/ear-burds-5.jpeg" alt="Product image" />
+        </div>
+      </div>
+
+      <div class="card grid grid-two-cols">
+        <div class="pro-desc">
+          <p class="p-small">NEW YEAR SALE</p>
+          <h3>40% Off! on watch</h3>
+          <a href="#">Shop now</a>
+        </div>
+        <div class="pro-img">
+          <img src="images/watch-1.jpg" alt="Product image" />
+        </div>
+      </div>
+
+      <div class="card grid grid-two-cols">
+        <div class="pro-desc">
+          <p class="p-small">NEW YEAR SALE</p>
+          <h3>get and extra 50% off</h3>
+          <a href="#">Shop now</a>
+        </div>
+        <div class="pro-img">
+          <img src="images/speaker-3.webp" alt="Product image" />
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- product section end -->
+
+  <!-- policy section start -->
+  <section id="policy-section" class="margin-tb">
+    <div class="container grid grid-four-cols">
+      <div class="policy-box grid grid-two-cols">
+        <div class="icon">
+          <i class="fa-solid fa-truck-fast"></i>
+        </div>
+        <div class="policy-desc">
+          <p class="title-p">Worldwide shipping</p>
+          <p class="p-small">order above $100</p>
+        </div>
+      </div>
+
+      <div class="policy-box grid grid-two-cols">
+        <div class="icon">
+          <i class="fa-solid fa-rotate"></i>
+        </div>
+        <div class="policy-desc">
+          <p class="title-p">Easy 30 Day Return</p>
+          <p class="p-small">Back retuen in 7 days</p>
+        </div>
+      </div>
+
+      <div class="policy-box grid grid-two-cols">
+        <div class="icon">
+          <i class="fa-solid fa-hand-holding-dollar"></i>
+        </div>
+        <div class="policy-desc">
+          <p class="title-p">Money Back Guarantee</p>
+          <p class="p-small">Guarantee with in 30-Days</p>
+        </div>
+      </div>
+
+      <div class="policy-box grid grid-two-cols">
+        <div class="icon">
+          <i class="fa-solid fa-headset"></i>
+        </div>
+        <div class="policy-desc">
+          <p class="title-p">Easy Online Support</p>
+          <p class="p-small">24/7 Available to Responce</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- policy section end -->
+
+  <!-- list product section start -->
+  <section id="product-section">
+    <div class="container">
+      <h2 class="h2-heading">Chekout Our Store</h2>
+    </div>
+
+    <section class="container">
+      <div id="productContainer">
+
+      </div>
+    </section>
+
+    <!-- Product Template Section -->
+    <template id="productTemplate">
+      <div class="cards" id="cardValue">
+        <article class="information [card]">
+          <span class="category"></span>
+          <div class="imageContainer">
+            <img src="" alt="" class="productImage" />
+          </div>
+
+          <h2 class="productName"></h2>
+
+          <div class="productRating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+          </div>
+
+          <p class="productDescription"></p>
+
+          <div class="productPriceElement">
+            <p class="productPrice"></p>
+            <p class="productActualPrice"></p>
+          </div>
+
+          <div class="productStockElement">
+            <p class="productProperty">Total Stocks Available:</p>
+            <p class="productStock"></p>
+          </div>
+
+          <div class="prodductQuantityElement">
+            <p class="productProperty">Quantity(Pieces)</p>
+
+            <div class="stockElement">
+              <button class="cartDecrement">-</button>
+              <p class="productQuantity">1</p>
+              <button class="cartIncrement">+</button>
+            </div>
+          </div>
+
+          <button class="add-to-cart-button">
+            <i class="fa-solid fa-cart-shopping"></i> Add To Cart
+          </button>
+        </article>
+      </div>
+    </template>
+    <!-- Product Template Section -->
+
+  </section>
+  <!-- list product section start -->
+
+  <!-- about section start -->
+  <section id="about-section" class="container margin-tb">
+    <div class="top-heading-texp">
+      <h2 class="h2-heading">Why Chose Save&Shop ?</h2>
+      <p class="p-paragraph">
+        Chose Our Shop&Save Store, Your Ultimate Distination For Our Latest
+        Product! Explore The Latest In Tech Invotation and Style Wiht Us.
+      </p>
+    </div>
+
+    <div class="grid grid-three-cols margin-tb">
+      <div class="left-disc-div">
+        <div class="first-desc-div div-min-width">
+          <p class="p-hightlight">1</p>
+          <h3 class="h3-title-heading">Wide Selection</h3>
+          <p>
+            This Sore provide a diversr range of gadgets, from smart phone to
+            smart home devise, ensuring you find what you need to elevate
+          </p>
+        </div>
+
+        <div class="first-desc-div div-min-width">
+          <p class="p-hightlight">2</p>
+          <h3 class="h3-title-heading">Quality Assurance</h3>
+          <p>
+            This Sore provide a diversr range of gadgets, from smart phone to
+            smart home devise, ensuring you find what you need to elevate
+          </p>
+        </div>
+
+        <div class="first-desc-div div-min-width">
+          <p class="p-hightlight">3</p>
+          <h3 class="h3-title-heading">Competitve Prices</h3>
+          <p>
+            This Sore provide a diversr range of gadgets, from smart phone to
+            smart home devise, ensuring you find what you need to elevate
+          </p>
+        </div>
+      </div>
+      <div class="image-div central-div">
+        <img src="images/presenting.jpg" alt="image" />
+      </div>
+
+      <div class="right-desc-div">
+        <div class="first-desc-div div-min-width">
+          <p class="p-hightlight">4</p>
+          <h3 class="h3-title-heading">Expert Guaidence</h3>
+          <p>
+            This Sore provide a diversr range of gadgets, from smart phone to
+            smart home devise, ensuring you find what you need to elevate
+          </p>
+        </div>
+
+        <div class="first-desc-div div-min-width">
+          <p class="p-hightlight">5</p>
+          <h3 class="h3-title-heading">Convinient Shoping</h3>
+          <p>
+            This Sore provide a diversr range of gadgets, from smart phone to
+            smart home devise, ensuring you find what you need to elevate
+          </p>
+        </div>
+
+        <div class="first-desc-div div-min-width">
+          <p class="p-hightlight">6</p>
+          <h3 class="h3-title-heading">Execelent Service</h3>
+          <p>
+            This Sore provide a diversr range of gadgets, from smart phone to
+            smart home devise, ensuring you find what you need to elevate
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- about section end -->
+
+  <!-- web footer section start-->
+  <footer id="footer-section">
+    <div class="container footer-main-div">
+      <div class="first-box">
+        <a href="#"><img src="images/logo.png" id="logo" alt="logo-img" /></a>
+        <ul class="store-links">
+          <li>
+            <a href="#"><i class="fa-solid fa-location-dot"></i> Pakistan, Punjab,
+              Vehari</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-solid fa-phone"></i> Call: +923265141541</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa-regular fa-user"></i> Company Number: 5477349
+            </a>
+          </li>
+          <li class="social-icons">
+            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="CS-div">
+        <h4 class="heading-h4">Customer Service</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Refund and Return policy</a></li>
+          <li><a href="#">Money Back Guarantee</a></li>
+          <li><a href="#">Money back Guarantee</a></li>
+          <li><a href="#">Delivery policy</a></li>
+        </ul>
+      </div>
+
+      <div class="Guaid-div">
+        <h4 class="heading-h4">Guaidence</h4>
+        <ul>
+          <li><a href="#"> online suport </a></li>
+          <li><a href="#"> contact us </a></li>
+          <li><a href="#"> 24/7 report </a></li>
+          <li><a href="#"> Shipping Services </a></li>
+          <li><a href="#"> Delivery time </a></li>
+        </ul>
+      </div>
+
+      <div class="news-div">
+        <h4 class="heading-h4">NEWSLETTER SIGNUP</h4>
+        <p class="news-paragraph">
+          subscribe to our newsletter and get 10% off! on first purchase
+        </p>
+        <div class="newsletter-box">
+          <input type="text" name="Gmail" id="signup" placeholder="Enter yor email" />
+          <button class="news-Btn">signup</button>
+        </div>
+        <img src="images/cards-img.png" alt="card-images" />
+      </div>
+    </div>
+    <hr style="border: 1px solid hsl(0, 0%, 30%)" />
+    <p class="copy-right">
+      <a href="#">All Rights Reserved © 2024 Shop&Save store</a>
+    </p>
+  </footer>
+  <!-- web footer section End-->
+
+  <script type="module" src="main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bro Code JS Practice</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        let p1 = new Promise((resolve, reject) => {
+            console.log("Promise work done is pending...");
+            setTimeout(() => {
+                // console.log("Promise work done is now complete");    this work is done in .then() 
+                resolve(true);
+            }, 4000);
+
+        });
+
+        let p2 = new Promise((resolve, reject) => {
+            console.log("Promise is pending...");
+            setTimeout(() => {
+                // console.log("promise is rejected");
+
+                reject(true);
+            }, 4000);
+        });
+
+        p1.then((value) => {
+            console.log(value);
+
+            // we can write another promise inside .then() , this method is called maethod chaining.
+
+            let p3 = new Promise((resolve, reject) => {
+                resolve("this promise is resolved");
+            });
+            return (p3);
+        }).then((value) => {
+            console.log("the third promise is also done.");
+            return (6);    // if we write this content then js automatically create promise of this thing.
+        }).then((value) => {
+            console.log("this promise is also done! now");
+        })
+
+        p2.then((value) => {
+
+            console.log(value);
+
+        }, (error) => {
+
+            console.log("erro ocure in the code");
+
+        });
+
+
+
+
+
+
+// these are the method of promise API. 
+
+
+        // let promise_all = Promise.all([p1, p2, p3]);
+        // let promise_all = Promise.allSettled([p1, p2, p3]);
+        // let promise_all = Promise.race([p1, p2, p3]);
+        let promise_all = Promise.any([p1, p2, p3]);
+        
+        promise_all.then((value) => {
+            console.log(value);
+        });
+
+
+    </script>
+</body>
+
+</html>

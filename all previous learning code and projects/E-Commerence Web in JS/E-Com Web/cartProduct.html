@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>cart product</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+   <header id="section-navbar">
+      <section class="top-text">
+         <div class="header container">
+            <div class="head-text">
+               <p class="p-normal">
+                  Free shipping, 30-day return and refund guarantee.
+               </p>
+            </div>
+            <div class="sign-in-up">
+               <a href="#">SIGN IN</a>
+               <a href="#">SIGN UP</a>
+            </div>
+         </div>
+      </section>
+      <div class="container header">
+         <div class="navbar-brand">
+            <a href="index.html">
+               <img src="images/logo2.png" alt="logo-img" id="logo" />
+            </a>
+         </div>
+         <nav class="navbar">
+            <ul>
+               <li class="nav-item">
+                  <a href="/" class="nav-link">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a href="About.html" class="nav-link">About</a>
+               </li>
+               <li class="nav-item">
+                  <a href="Products.html" class="nav-link">Products</a>
+               </li>
+               <li class="nav-item">
+                  <a href="Contact.html" class="nav-link">Contact</a>
+               </li>
+               <li class="nav-item">
+                  <a href="cartProduct.html" class="nav-link cart-button" id="cartValue"><i
+                        class="fa-solid fa-cart-shopping"> 0 </i></a>
+               </li>
+            </ul>
+         </nav>
+      </div>
+   </header>
+
+   <section class="addToCartElement margin-tb">
+      <div class="container">
+         <section>
+            <div id="productCartContainer"></div>
+         </section>
+         <section class="productCartTotalElem">
+            <div class="productCartTotalElement">
+               <p>Selcted Offer Summary</p>
+               <div class="productOrderTotal">
+                  <div>
+                     <p>Sub Total:</p>
+                     <p class="prodcutSubTotal">0</p>
+                  </div>
+                  <div>
+                     <p>Tax:</p>
+                     <p class="productTax">Rs 50</p>
+                  </div>
+                  <hr />
+                  <div>
+                     <p>Final Total:</p>
+                     <p class="productFinalTotal">0</p>
+                  </div>
+               </div>
+            </div>
+         </section>
+   </section>
+   <template id="productCartTemplate">
+      <div class="cart-cards" id="cardValue">
+         <article class="cart-cardsinformation [ cart-card ]">
+            <div class="category-div">
+               <span class="category"></span>
+            </div>
+            <div id="imageContainer">
+               <div class="sub-img-con">
+                  <img class="cartproductImage" src="" alt="">
+               </div>
+            </div>
+            <h2 class="productName"></h2>
+            <p class="productPrice"></p>
+            <div class="stockElement">
+               <button class="cartDecrement">-</button>
+               <p class="productQuantity"> 1</p>
+               <button class="cartIncrement">+</button>
+            </div>
+            <button class="add-to-cart-button remove-to-cart-button">Remove</button>
+         </article>
+      </div>
+   </template>
+
+   <!-- web footer section start-->
+   <footer id="footer-section">
+      <div class="container footer-main-div">
+         <div class="first-box">
+            <a href="#"><img src="images/logo.png" id="logo" alt="logo-img" /></a>
+            <ul class="store-links">
+               <li>
+                  <a href="#"><i class="fa-solid fa-location-dot"></i> Pakistan, Punjab,
+                     Vehari</a>
+               </li>
+               <li>
+                  <a href="#"><i class="fa-solid fa-phone"></i> Call: +923265141541</a>
+               </li>
+               <li>
+                  <a href="#"><i class="fa-regular fa-user"></i> Company Number: 5477349
+                  </a>
+               </li>
+               <li class="social-icons">
+                  <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                  <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                  <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+                  <a href="#"><i class="fa-brands fa-twitter"></i></a>
+               </li>
+            </ul>
+         </div>
+         <div class="CS-div">
+            <h4 class="heading-h4">Customer Service</h4>
+            <ul>
+               <li><a href="#">About Us</a></li>
+               <li><a href="#">Refund and Return policy</a></li>
+               <li><a href="#">Money Back Guarantee</a></li>
+               <li><a href="#">Money back Guarantee</a></li>
+               <li><a href="#">Delivery policy</a></li>
+            </ul>
+         </div>
+         <div class="Guaid-div">
+            <h4 class="heading-h4">Guaidence</h4>
+            <ul>
+               <li><a href="#"> online suport </a></li>
+               <li><a href="#"> contact us </a></li>
+               <li><a href="#"> 24/7 report </a></li>
+               <li><a href="#"> Shipping Services </a></li>
+               <li><a href="#"> Delivery time </a></li>
+            </ul>
+         </div>
+         <div class="news-div">
+            <h4 class="heading-h4">NEWSLETTER SIGNUP</h4>
+            <p class="news-paragraph">
+               subscribe to our newsletter and get 10% off! on first purchase
+            </p>
+            <div class="newsletter-box">
+               <input type="text" name="Gmail" id="signup" placeholder="Enter yor email" />
+               <button class="news-Btn">signup</button>
+            </div>
+            <img src="images/cards-img.png" alt="card-images" />
+         </div>
+      </div>
+      <hr style="border: 1px solid hsl(0, 0%, 30%)" />
+      <p class="copy-right">
+         <a href="#">All Rights Reserved © 2024 Shop&Save store</a>
+      </p>
+   </footer>
+   <!-- web footer section End-->
+   <script type="module" src="showaddtocartcards2.js"></script>
+</body>
+
+</html>

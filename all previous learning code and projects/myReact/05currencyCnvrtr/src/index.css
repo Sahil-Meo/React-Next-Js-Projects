@@ -1,0 +1,23 @@
+body {
+  background: url(https://coinjournal.net/wp-content/uploads/2023/03/1646645921480-57838532-8b7c-4faa-a093-5057306adb34.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  height: 93vh;
+}
+
+.swap-btn {
+  top: 35%;
+  left: 46%;
+}
+
+.main-box {
+  background-color: hsla(0, 0%, 100%, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+@media (max-width: 576px) {
+  .main-box {
+    width: 100% !important;
+  }
+
+}

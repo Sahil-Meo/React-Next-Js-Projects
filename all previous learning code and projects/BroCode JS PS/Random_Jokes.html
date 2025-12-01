@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Jokes</title>
+</head>
+
+<style>
+    body {
+        font-family: verdana, sans-serif;
+    }
+
+    .container {
+        align-items: center;
+        width: 600px;
+        background-color: hsl(0, 0%, 90%);
+        border-radius: 7px;
+        box-shadow: 2px 2px 10px rebeccapurple;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        margin: auto;
+        margin-top: 15%;
+    }
+
+    h1 {
+        color: blueviolet;
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    #jokes {
+        font-size: 1.2em;
+        font-style: italic;
+        color: #555555;
+        margin: 20px 0px;
+        border-radius: 5px;
+        padding: 10px 5px;
+        background-color: hsl(0, 0%, 95%);
+    }
+
+    .btn_Refresh {
+        padding: 10px 15px;
+        margin: 10px 0px;
+        font-size: 20px;
+        font-weight: bold;
+        background-color: blueviolet;
+        color: whitesmoke;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px hsl(0, 0%, 31%);
+    }
+
+    .btn_Refresh:hover {
+        background-color: hsl(271, 87%, 53%);
+    }
+
+    .btn_Refresh:active {
+        background-color: rgb(160, 62, 252);
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Random jokes Generator</h1>
+        <p id="jokes"></p>
+        <button class="btn_Refresh" onclick="showRandomJokes()">Show Another Joke</button>
+    </div>
+
+    <script>
+        
+        const jokes = [ 
+
+            "Why don’t scientists trust atoms? Because they make up everything!",
+            "Why did the bicycle fall over? It was two-tired!",
+            "How does a penguin build its house? Igloos it together!",
+            "What did the fish say when it hit the wall? Dam!",
+            "Why don’t skeletons fight each other? They don’t have the guts."
+        
+        ];
+
+        function showRandomJokes() {
+
+            const randonIndex = Math.floor(Math.random() * jokes.length);
+            document.getElementById(`jokes`).textContent = jokes[randonIndex];
+        }
+        showRandomJokes();
+    </script>
+</body>
+
+</html>

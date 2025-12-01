@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Practice</title>
+
+    <style>
+        body {
+            margin: 0%;
+            padding: 0;
+            background-color: hsl(0, 0%, 90%);
+        }
+
+        #calculater {
+            width: 300px;
+            height: auto;
+            margin: auto;
+            margin-top: 50px;
+            padding: 20px 5px 10px 5px;
+            display: flex;
+            flex-direction: column;
+            border: 5px solid hsl(0, 0%, 50%);
+            border-radius: 10px;
+            background-color: hsl(0, 0%, 30%);
+        }
+
+        #display {
+            font-size: 40px;
+            width: 90%;
+            padding: 5px;
+            margin: auto;
+            margin-bottom: 15px;
+            border: 2px solid hsl(0, 0%, 80%);
+            border-radius: 5px;
+            outline: none;
+            color: black;
+        }
+
+        button{
+            font-size: 30px;
+            padding: 5px;
+            width: 66px;
+            height: 66px;
+            margin: 4px;
+            border: 2px solid hsl(0, 0%, 70%);
+            border-radius: 50px;
+            cursor: pointer;
+
+        }
+
+        button:hover {
+            background-color: hsl(0, 0%, 45%);
+        }
+
+        button:active {
+            background-color: hsl(0, 0%, 80%);
+        }
+
+        #topBtn {
+            color: white;
+            background-color: hsl(0, 100%, 40%);
+            border-color:  hsl(0, 100%, 40%);
+        }
+
+        #clt {
+            background-color: hwb(0 100% 0% / 0.377);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="calculater">
+        <input id="display" readonly>
+        <div id="keys">
+            <button id="topBtn" onclick="clearDisplay('C')">C</butto>
+            <button id="topBtn" onclick="memoryRecal()">MR</butto>
+           <button id="topBtn" onclick="mPlus()">M+</butto>
+           <button id="topBtn" onclick="mMinus()">M-</butto>
+           <button onclick="appendTodisplay('7')">7</butto>
+           <button onclick="appendTodisplay('8')">8</butto>
+           <button onclick="appendTodisplay('9')">9</butto>
+           <button onclick="appendTodisplay('+')">+</butto>
+           <button onclick="appendTodisplay('4')">4</butto>
+           <button onclick="appendTodisplay('5')">5</butto>
+           <button onclick="appendTodisplay('6')">6</butto>
+           <button onclick="appendTodisplay('-')">-</butto>
+           <button onclick="appendTodisplay('1')">1</butto>
+           <button onclick="appendTodisplay('2')">2</butto>
+           <button onclick="appendTodisplay('3')">3</butto>
+           <button onclick="appendTodisplay('*')">*</butto>
+           <button onclick="appendTodisplay('0')">0
+           </butto>
+           <button onclick="appendTodisplay('.')">.
+           </butto>
+           <button
+              onclick="appendTodisplay('%')">%
+           </butto>
+           <button
+            id="clt" onclick="calculate('=')">=
+           </butto>
+        </div>
+     </div>
+
+
+
+    <script>
+
+        let display = document.getElementById('display');
+        let memory = 0;
+        function appendTodisplay(input) {
+            display.value += input;
+        }
+
+        function clearDisplay() {
+            display.value = "";
+        }
+
+        function calculate() {
+            try{
+                display.value = eval(display.value);
+
+            }
+            catch(error) {
+                display.value = "error";    
+            }
+        }
+
+        function mPlus() {
+            if(display.value !== "") {
+                memory += parseFloat(display.value);
+                alert(`Mermory Updated! : ${memory}`);
+            }
+        }
+
+        function mMinus(){
+            if(display.value !== "") {
+                memory -= parseFloat(display.value);
+                alert(`Memory Updated : ${memory}`)
+            }
+        }
+
+        function memoryRecal() {
+           
+                display.value = memory ;
+        }
+    </script>
+
+</body>
+
+</html>

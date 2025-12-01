@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Js Practice</title>
+      <style>
+         .slider {
+         position: relative;
+         width: 60%;
+         margin: auto;
+         margin-top: 80px;
+         overflow: hidden;
+         border: 5px solid hsl(0, 0%, 80%);
+         border-radius: 15px;
+         }
+         .slider img {
+         width: 100%;
+         display: none;
+         }
+         img.displaySlide {
+         display: block;
+         }
+         .slider button {
+         position: absolute;
+         top: 50%;
+         transform: translateY(-50);
+         font-size: 2rem;
+         background: rgba(0, 0, 0, 0.473);
+         color: rgba(255, 255, 255, 0.671);
+         border: none;
+         cursor: pointer;
+         }
+         .prev {
+         right: 0;
+         }
+         .next {
+         left:0 ;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="slider">
+         <div class="slides">
+            <img class="slide" src="img//car1.jpg" alt="car-img">
+            <img class="slide" src="img//car2.webp" alt="car-img">
+            <img class="slide" src="img//car3.jpg" alt="car-img">
+         </div>
+         <button class="next" onclick="nextSlide()">&#10094</button>
+         <button class="prev" onclick="prevSlide()">&#10095</button>
+      </div>
+      <script >
+         const slides = document.querySelectorAll(".slides img");
+         let slideIndex = 0;
+         let intervalId = null;
+         
+         //initializeSlider();  we can use the next line instead of this line to load the domcontent
+         document.addEventListener("DOMContentLoaded", initializeSlider);
+         
+         function initializeSlider() {
+         
+           if (slides.length > 0) {
+             slides[slideIndex].classList.add("displaySlide");
+             intervalId = setInterval(nextSlide, 5000);
+           }
+         
+         
+         }
+         
+         function showSlides(index) {
+         
+           if (index >= slides.length) {
+             slideIndex = 0;
+           }
+           else if(index<0){
+             slideIndex = slides.length - 1;
+           }
+         
+           slides.forEach(slide => {
+             slide.classList.remove("displaySlide");
+           });
+         
+           slides[slideIndex].classList.add("displaySlide")
+         }
+         
+         function nextSlide() {
+           slideIndex++;
+           showSlides(slideIndex);
+         }
+         
+         function prevSlide() {
+           clearInterval(intervalId);
+           slideIndex--;
+           showSlides(slideIndex); 
+         }
+             
+      </script>
+   </body>
+</html>

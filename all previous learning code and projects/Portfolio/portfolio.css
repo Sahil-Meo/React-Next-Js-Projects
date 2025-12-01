@@ -1,0 +1,622 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: hsl(0, 0%, 20%);
+    color: #fff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navbar Styles */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: hsl(0, 0%, 5%);
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #f00;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+   
+}
+
+
+
+.menu {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    margin-left: 70px;
+}
+
+.menu li a {
+    color: #fff;
+    font-size: 18px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.menu li a:hover,
+.menu li a.active {
+    color:#f00;
+}
+
+a.active::after,
+a:hover::after {
+    content: "";
+    width: 40px;
+    height: 2px;
+    background-color:#f00;
+    bottom: -4px;
+    color: #0bbaad;
+    left: 2px;
+    position: absolute;
+}
+/* Responsive Navbar */
+.burger {
+    display: none;
+    /* Hidden by default */
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    background: linear-gradient(to bottom, hsl(0, 0%, 0%), hsl(0, 0%, 10%));
+}
+
+.herodesc {
+    width: 40%;
+    text-align: start;
+}
+
+.herodesc h2 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.herodesc h1 {
+    font-size: 48px;
+    color: #fff;
+}
+
+.herodesc h1 span {
+    color: #f00;
+}
+
+.herodesc p {
+    font-size: 18px;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.herodesc .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #000;
+    background-color: #f00;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.herodesc .btn:hover {
+    background-color: #fff;
+    color: #f00;
+    transform: scale(1.1);
+}
+
+.heroImg {
+    /* position: relative; */
+    width: 40%;
+    text-align: right;
+}
+
+.heroImg img {
+    width: 280px;
+    margin-right: 20px;
+    border-radius: 130px;
+    background-color: hsl(0, 0%, 10%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.heroImg img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px hsl(0, 0%, 67%);
+}
+
+.icons i {
+    font-size: 30px;
+    margin: 0 5px 20px 0;
+    transition: transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.icons i:hover {
+    transform: scale(1.2);
+    color: hsl(0, 100%, 60%);
+}
+
+/* Services Section */
+.services {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.services h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.services h2 span {
+    color: #f00;
+}
+
+.cards {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: auto;
+}
+
+ .card {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.card .btn{
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: #000;
+    margin: 10px 0;
+    background-color: #f00;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.card:hover .btn {
+    background-color: #fff;
+    color: #f00;
+    transform: scale(1.1);
+}
+
+ .card:hover {
+    transform: translateY(-10px);
+    background-color: #333;
+}
+
+.card i {
+    font-size: 50px;
+    margin: 10px;
+}
+
+ .card h3 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.services .card p {
+    color: #aaa;
+}
+
+/* signup banner style*/
+.signup-banner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #111, #333);
+    color: #fff;
+}
+
+.banner-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.banner-text h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #f00;
+}
+
+.banner-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+.signup-form {
+    flex: 1;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form h2 {
+    font-size: 28px;
+    color: #f00;
+    margin-bottom: 20px;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.signup-form input:focus {
+    border-color: #f00;
+    outline: none;
+}
+
+.signup-form .btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #f00;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-form .btn:hover {
+    background-color: #cc0000;
+}
+
+/* Header Section Styles */
+.header {
+    width: 100%;
+    height: 400px;
+    background: url(https://www.theforage.com/blog/wp-content/uploads/2024/03/client-services-e1709741837781.jpg) center/cover no-repeat;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    box-shadow: inset 0 0 100px hsla(0, 0%, 0%, 1.0);
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1;
+}
+
+/* Text Content Styling */
+#Ser-page-desc {
+    position: relative; 
+    z-index: 2;
+    max-width: 800px;
+    background:hsla(0, 0%, 0%, 0.3);
+}
+
+#Ser-page-desc h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #f00;
+}
+
+#Ser-page-desc h1 span {
+    color: white;
+}
+
+#Ser-page-desc p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+/* Reset and Base Styles */
+
+
+.services-section {
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #000, #222);
+}
+
+.services-description {
+    flex: 1;
+    padding: 20px;
+}
+
+.services-description h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #f00;
+}
+
+.services-description h1 span {
+    color: white;
+}
+
+.services-description p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.services-description .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #f00;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.services-description .btn:hover {
+    background-color: #fff;
+    color: #f00;
+}
+
+.services-image {
+    flex: 1;
+    text-align: center;
+}
+
+.services-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.services-image img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+}
+
+
+/* General Footer Styling */
+.footer {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    padding: 40px 20px;
+}
+
+.footer-cta {
+    background: linear-gradient(90deg, #f00, #f00);
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+}
+
+.footer-cta h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.footer-cta p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.footer-cta .btn {
+    display: inline-block;
+    background-color: #fff;
+    color: #f00;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.footer-cta .btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-section.social {
+    flex: 1;
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #f00;
+}
+
+.footer-section.social .social-icons {
+    margin-bottom: 10px;
+}
+
+.footer-section.social .icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section.social .icon:hover {
+    background-color: #f00;
+    transform: scale(1.1);
+}
+
+.footer-section.services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section.services ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section.services ul li a {
+    color: #aaa;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section.services ul li a:hover {
+    color: #f00;
+}
+.footer-section.contact p {
+    margin: 10px 0;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.footer-section.contact strong {
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    border-top: 1px solid #333;
+    padding: 10px 0;
+    color: #aaa;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu {
+        display: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .menu li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu.active {
+        display: block;
+    }
+
+    /* services page */
+
+    .services-section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .services-image img {
+        margin: 20px 0;
+    }
+
+    /*signup banner*/
+
+    .signup-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .signup-form {
+        margin-top: 20px;
+        width: 80%;
+    }
+
+ 
+    .footer-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        text-align: center;
+    
+}
+
+}

@@ -1,0 +1,60 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "title": "Guitar Fundamentals",
+            "slug": "guitar-fundamentals",
+            "description": "Learn the basic of playing guitar with our comprehensive beginner's course.",
+            "price": 99.99,
+            "instructor": "Sahil Meo",
+            "isFeatured": true,
+            "image": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+        {
+            "id": 2,
+            "title": "Piano for Beginners",
+            "slug": "guitar-fundamentals",
+            "description": "Learn the basic of playing guitar with our comprehensive beginner's course.playing guitar with our comprehensive beginner's course",
+            "price": 89.99,
+            "instructor": "Jhon Doe",
+            "isFeatured": true,
+            "image": "https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "id": 3,
+            "title": "Advance Vocal technique ",
+            "slug": "guitar-fundamentals",
+            "description": "Learn the basic of playing guitar with our comprehensive beginner's course. Join us to make more better your music Experience",
+            "price": 49.99,
+            "instructor": "Eliza Beth",
+            "isFeatured": true,
+            "image": "https://images.unsplash.com/photo-1543510616-a4025b9c1434?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"},
+        {
+            "id": 4,
+            "title": "Druming Mastery",
+            "slug": "guitar-fundamentals",
+            "description": "Learn the basic of playing guitar with our comprehensive beginner's course.playing guitar with our comprehensive beginner's course",
+            "price": 99.99,
+            "instructor": "Harsh Jhon",
+            "isFeatured": true,
+            "image": "https://images.unsplash.com/photo-1701590223282-f137316edea0?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+        {
+            "id": 5,
+            "title": "Jazz Improvisation",
+            "slug": "guitar-fundamentals",
+            "description": "Learn the basic of playing guitar with our comprehensive beginner's course.",
+            "price": 49.99,
+            "instructor": "Eliza Beth",
+            "isFeatured": true,
+            "image": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+            "id": 6,
+            "title": "Music Production Fundamentals",
+            "slug": "guitar-fundamentals",
+            "description": "Learn the basic of playing guitar with our comprehensive beginner's course.",
+            "price": 99.99,
+            "instructor": "Harsh Jhon",
+            "isFeatured": true,
+            "image": "https://images.unsplash.com/photo-1514119412350-e174d90d280e?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" }
+    ]
+}

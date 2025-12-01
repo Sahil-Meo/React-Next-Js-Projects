@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional To-Do List App</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: 50px auto;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+
+      form input,
+      form textarea,
+      form button {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      form button {
+        background-color: #28a745;
+        color: white;
+        cursor: pointer;
+        border: none;
+      }
+
+      form button:hover {
+        background-color: #218838;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        background: #fff;
+        margin: 10px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      ul li.completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+
+      .task-actions button {
+        margin-left: 5px;
+        border: none;
+        background: #dc3545;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .task-actions button.edit {
+        background: #ffc107;
+      }
+
+      .task-actions button:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-Do List</h1>
+      <form id="task-form">
+        <input type="text" id="task-title" placeholder="Task title" required />
+        <textarea id="task-desc" placeholder="Task description"></textarea>
+        <button type="submit">Add Task</button>
+      </form>
+      <ul id="task-list"></ul>
+    </div>
+    <script>
+      // Get DOM elements
+      const taskForm = document.getElementById("task-form");
+      const taskList = document.getElementById("task-list");
+
+      // Load tasks from localStorage
+      document.addEventListener("DOMContentLoaded", loadTasks);
+
+      // Add task event
+      taskForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const title = document.getElementById("task-title").value.trim();
+        const desc = document.getElementById("task-desc").value.trim();
+
+        if (title) {
+          const task = { id: Date.now(), title, desc, completed: false };
+          addTaskToUI(task);
+          saveTask(task);
+          taskForm.reset();
+        }
+      });
+
+      // Add task to the UI
+      function addTaskToUI(task) {
+        const li = document.createElement("li");
+        li.classList.add("task");
+        if (task.completed) li.classList.add("completed");
+        li.setAttribute("data-id", task.id);
+
+        li.innerHTML = `
+    <div>
+      <strong>${task.title}</strong>
+      <p>${task.desc}</p>
+    </div>
+    <div class="task-actions">
+      <button class="complete">${task.completed ? "Undo" : "Complete"}</button>
+      <button class="edit">Edit</button>
+      <button class="delete">Delete</button>
+    </div>
+  `;
+
+        taskList.appendChild(li);
+      }
+
+      // Save task to localStorage
+      function saveTask(task) {
+        const tasks = getTasks();
+        tasks.push(task);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+      }
+
+      // Get tasks from localStorage
+      function getTasks() {
+        return JSON.parse(localStorage.getItem("tasks")) || [];
+      }
+
+      // Load tasks on page load
+      function loadTasks() {
+        const tasks = getTasks();
+        tasks.forEach(addTaskToUI);
+      }
+
+      // Mark task as complete or delete task
+      taskList.addEventListener("click", (e) => {
+        const taskEl = e.target.closest(".task");
+        if (!taskEl) return;
+
+        const id = parseInt(taskEl.getAttribute("data-id"));
+        const tasks = getTasks();
+        const taskIndex = tasks.findIndex((t) => t.id === id);
+
+        if (e.target.classList.contains("complete")) {
+          tasks[taskIndex].completed = !tasks[taskIndex].completed;
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+          taskEl.classList.toggle("completed");
+          e.target.textContent = tasks[taskIndex].completed
+            ? "Undo"
+            : "Complete";
+        } else if (e.target.classList.contains("delete")) {
+          tasks.splice(taskIndex, 1);
+          localStorage.setItem("tasks", JSON.stringify(tasks));
+          taskEl.remove();
+        } else if (e.target.classList.contains("edit")) {
+          const newTitle = prompt("Edit task title:", tasks[taskIndex].title);
+          const newDesc = prompt(
+            "Edit task description:",
+            tasks[taskIndex].desc
+          );
+          if (newTitle !== null && newDesc !== null) {
+            tasks[taskIndex].title = newTitle.trim();
+            tasks[taskIndex].desc = newDesc.trim();
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+            taskEl.querySelector("strong").textContent = newTitle;
+            taskEl.querySelector("p").textContent = newDesc;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

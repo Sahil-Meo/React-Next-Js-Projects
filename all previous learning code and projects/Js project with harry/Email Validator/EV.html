@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Validator</title>
+  <link rel="stylesheet" href="EV.css">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo">MyBrand</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="hero">
+    <div class="form-container">
+      <h1>Email Validator</h1>
+      <form action="#">
+        <input type="text" placeholder="Name" id="email-input" required>
+        <p>Its Not Necessary</p>
+        <div class="gender">
+          <label><input type="radio" name="gender" value="male"> Male</label>
+          <label><input type="radio" name="gender" value="female"> Female</label>
+          <label><input type="radio" name="gender" value="custom"> Custom</label>
+        </div>
+        <button type="submit" id="btn">Submit</button>
+      </form>
+      <div class="Container">
+        <h2>Your Result:</h2>
+
+        <div id="resultCont">
+
+        </div>
+      </div>
+    </div>
+
+
+  </main>
+  <footer>
+    <p>
+      &copy; 2024 <a href="https://yourwebsite.com" target="_blank">YourWebsite.com</a>. All rights reserved.
+    </p>
+  </footer>
+  <script src="EV.js"></script>
+</body>
+
+</html>

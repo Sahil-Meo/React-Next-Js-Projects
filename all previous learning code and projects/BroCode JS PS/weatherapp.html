@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: hsl(0, 0%, 95%);
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .weatherForm {
+        margin: 20px;
+      }
+
+      #cityInput {
+        padding: 10px;
+        font-size: 2rem;
+        font-weight: bolder;
+        border: 2px solid hsla(0, 0%, 50%, 0.301);
+        border-radius: 10px;
+        width: 250px;
+        margin: 10px;
+        outline: none;
+      }
+
+      button[type="submit"] {
+        padding: 10px 20px;
+        font-weight: bolder;
+        font-size: 2rem;
+        border: none;
+        background-color: rgb(0, 151, 0);
+        color: white;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      button[type="submit"]:hover {
+        background-color: green;
+      }
+
+      .Card {
+        background: linear-gradient(
+          180deg,
+          hsl(210, 100%, 75%),
+          hsla(39, 100%, 50%, 0.685)
+        );
+        padding: 50px;
+        box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.5);
+        min-width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        margin-top: 0;
+        margin-bottom: 25px;
+      }
+
+      p {
+        font-size: 1.5rem;
+        margin: 5px 0;
+      }
+
+      .cityDisplay,
+      .tempDisplay {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: hsla(0, 0%, 0%, 0.75);
+        margin-bottom: 25px;
+      }
+
+      .humidityDisplay {
+        font-weight: bold;
+        margin-bottom: 25px;
+      }
+
+      .descDisplay {
+        font-style: italic;
+        font-weight: bold;
+        font-size: 2rem;
+      }
+
+      .weatherEmoji {
+        font-size: 7.5rem;
+        margin: 0;
+      }
+
+      .errorDisplay {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: hsla(0, 0%, 0%, 0.75);
+      }
+    </style>
+  </head>
+  <body>
+    <form class="weatherForm">
+      <input type="text" id="cityInput" placeholder="Enter your city" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <div class="Card" style="display: none"></div>
+
+    <script>
+      const weatherForm = document.querySelector(".weatherForm");
+      const cityInput = document.querySelector("#cityInput");
+      const card = document.querySelector(".Card");
+      const apiKey = "62e96f14af5b174be14e3ce58f5803e9";
+
+      weatherForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const city = cityInput.value;
+        if (city) {
+          try {
+            const weatherData = await getWeatherData(city);
+            displayWeatherInfo(weatherData);
+          } catch (error) {
+            console.error(error);
+            displayError("Error fetching weather data");
+          }
+        } else {
+          displayError("Please enter a city");
+        }
+      });
+
+      async function getWeatherData(city) {
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error("Could not fetch the data");
+        }
+
+        return response.json();
+      }
+
+      function displayWeatherInfo(data) {
+        const {
+          name: city,
+          main: { temp, humidity },
+          weather: [{ description, id }],
+        } = data;
+
+        card.textContent = "";
+        card.style.display = "flex";
+
+        const cityDisplay = document.createElement("h1");
+        const tempDisplay = document.createElement("p");
+        const humidityDisplay = document.createElement("p");
+        const descDisplay = document.createElement("p");
+        const weatherEmoji = document.createElement("p");
+
+        cityDisplay.textContent = city;
+        tempDisplay.textContent = `${((temp - 32) * (5 / 9)).toFixed(1)}°C`;// Convert Celsius to Fahrenheit
+        humidityDisplay.textContent = `Humidity: ${humidity}%`;
+        weatherEmoji.textContent = getWeatherEmoji(id);
+
+        cityDisplay.classList.add("cityDisplay");
+        tempDisplay.classList.add("tempDisplay");
+        humidityDisplay.classList.add("humidityDisplay");
+        weatherEmoji.classList.add("weatherEmoji");
+
+        card.appendChild(cityDisplay);
+        card.appendChild(tempDisplay);
+        card.appendChild(humidityDisplay);
+        card.appendChild(weatherEmoji);
+      }
+
+      function getWeatherEmoji(weatherId) {
+        if (weatherId >= 200 && weatherId < 300) {
+          return "🌩️"; // Thunderstorm
+        } else if (weatherId >= 300 && weatherId < 400) {
+          return "🌦️"; // Drizzle
+        } else if (weatherId >= 500 && weatherId < 600) {
+          return "🌧️"; // Rain
+        } else if (weatherId >= 600 && weatherId < 700) {
+          return "❄️"; // Snow
+        } else if (weatherId >= 700 && weatherId < 800) {
+          return "🌫️"; // Atmosphere
+        } else if (weatherId === 800) {
+          return "☀️"; // Clear
+        } else if (weatherId > 800) {
+          return "☁️"; // Clouds
+        }
+        return "";
+      }
+
+      function displayError(message) {
+        const errorDisplay = document.createElement("p");
+        errorDisplay.textContent = message;
+        errorDisplay.classList.add("errorDisplay");
+
+        card.textContent = "";
+        card.style.display = "flex";
+        card.appendChild(errorDisplay);
+      }
+    </script>
+  </body>
+</html>
