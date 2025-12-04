@@ -1,24 +1,27 @@
-import { createRouter, createWebHistory } from "vue-router";
-import About from "@/About/About.vue";
-import Contact from "@/Contact/Contact.vue";
+import { createRouter, createWebHistory } from 'vue-router'
 
-const router = createRouter({
-     // history:createWebHistory(),  pending just dude to half knowledge
-     routes: [
-          {
-               path: '/about',
-               name: 'about',
-               component: About
-          },
-          {
-               path: '/contact',
-               name: 'about',
-               component: Contact
-          },
-          {
-               path: '/',
-               name: 'home',
-               component: Home
-          },
-     ]
+import Home from '@/pages/Home.vue'
+import About from '@/pages/About.vue'
+import Contact from '@/pages/Contact.vue'
+import MainLayoutFile from '@/layout/MainLayoutFile.vue'
+import Weather from '@/pages/Weather.vue'
+import Invoice from '@/pages/Invoice.vue'
+
+const routes = [
+     {
+          path: '/',
+          component: MainLayoutFile,
+          children: [
+               { path: '', component: Home },
+               { path: 'about', component: About },
+               { path: 'contact', component: Contact },
+               { path: 'weather', component: Weather },
+               { path: 'invoice-send', component: Invoice },
+          ]
+     }
+]
+
+export default createRouter({
+     history: createWebHistory(),
+     routes
 })
